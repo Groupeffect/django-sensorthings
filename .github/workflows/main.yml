@@ -129,8 +129,12 @@ jobs:
       - uses: astral-sh/setup-uv@v7
 
       - name: Build
-        run: uv lock
+        run: ls && uv build
 
       # commit and push changes of uv build and skip ci
       - name: Commit and push changes
-        uses: ./.github/actions/commit-and-push
+        # uses: ./.github/actions/commit-and-push
+        run: |
+          git status
+          ls
+          ls dist
