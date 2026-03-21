@@ -20,6 +20,6 @@ runs:
         git config user.name "GitHub-Actions"
         git config user.email "mail@groupeffect.de"
         git status
-        # git add .
-        # git commit -m "${{ inputs.commit-message }}" || echo 'auto commit'
-        # git push --skip-ci
+        git add -A
+        git commit -m "${{ inputs.commit-message }}" || echo 'auto commit'
+        git push --skip-ci
