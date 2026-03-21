@@ -41,8 +41,13 @@ classifiers = [
   "Typing :: Typed",
 ]
 dependencies = [
-  "asgiref>=3.6",
-  "django>=4.2",
+  "Django                        >= 6.*.*",
+  "django-cors-headers           >= 4.*.*",
+  "django-extensions             >= 4.*.*",
+  "django-filter                 >= 25.*.*",
+  "django-lifecycle              >= 1.2.*.*",
+  "djangorestframework           >= 3.16.*.*",
+  "djangorestframework_simplejwt >= 5.5.*.*"
 ]
 urls.Changelog = "https://github.com/groupeffect/django-sensorthings/blob/main/CHANGELOG.rst"
 urls.Funding = "https://groupeffect.eu/books/"
