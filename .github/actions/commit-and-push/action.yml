@@ -20,7 +20,7 @@ runs:
         git config user.name "GitHub-Actions"
         git config user.email "mail@groupeffect.de"
         git status
-        git pull --rebase origin development/prepare
+        git pull --rebase origin development/prepare || true
         git add -A
         # try to commit and do not fail
         #git commit -m '[skip-ci] auto commit' || true
