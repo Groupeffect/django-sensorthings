@@ -22,5 +22,6 @@ runs:
         git status
         git pull --rebase origin development/prepare
         git add -A
-        git commit -m '[skip-ci] auto commit'
+        # try to commit and do not fail
+        #git commit -m '[skip-ci] auto commit' || true
         git push 
