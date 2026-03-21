@@ -29,11 +29,5 @@ def check_settings(**kwargs: Any) -> list[CheckMessage]:
                 id="sensorthings.E001",
             )
         )
-    if not isinstance(conf.SENSORTHING_DISABLE_MODELS, bool):
-        errors.append(
-            Error(
-                "SENSORTHING_DISABLE_MODELS should be a boolean.",
-                id="sensorthings.E002",
-            )
-        )
+
     return errors
