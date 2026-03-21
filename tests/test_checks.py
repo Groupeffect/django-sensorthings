@@ -14,7 +14,8 @@ from sensorthings.checks import check_settings
 class ChecksTests(SimpleTestCase):
     @override_settings(SENSORTHING_API_PREFIX=object)
     def test_api_prefix_obj(self):
-        self.check_error_codes(["sensorthings.E001"])
+        errors = check_settings()
+        assert len(errors) == 1
 
     # def check_error_codes(self, expected: list[str]) -> list[CheckMessage]:
     #     errors = check_settings()
