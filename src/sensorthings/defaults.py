@@ -34,9 +34,6 @@ SENSORTHING_API_PREFIX = "sensorthings"
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 DATABASE_OPTIONS = {
-    "sqlite": {
-        "ENGINE": "django.db.backends.sqlite3",
-    },
     "spatialite": {
         "ENGINE": "django.contrib.gis.db.backends.spatialite",
     },
