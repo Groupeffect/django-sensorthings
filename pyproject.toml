@@ -59,11 +59,6 @@ test = [
 django60 = [ "django>=6a1,<6.1; python_version>='3.12'" ]
 
 [tool.uv]
-conflicts = [
-  [
-    { group = "django60" },
-  ],
-]
 
 [tool.ruff]
 lint.select = [
