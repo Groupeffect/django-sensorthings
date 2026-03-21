@@ -1,4 +1,4 @@
-name: Commit and Push
+name: Pull Commit and Push
 description: Commit all changes and push to the target branch, skipping CI.
 
 inputs:
