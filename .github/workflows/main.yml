@@ -47,10 +47,6 @@ jobs:
     - name: Write lock file
       run: uv sync
 
-    # - name: Commit lock file
-    #   uses: ./.github/actions/commit-and-push
-    #   with:
-    #     commit-message: "chore: update lock file"
 
     - name: Run tox targets for ${{ matrix.python-version }}
       run: uvx --with tox-uv tox run -f py$(echo ${{ matrix.python-version }} | tr -d .)
@@ -64,6 +60,17 @@ jobs:
         if-no-files-found: error
 
     
-    - name: Write lock file
-      run: ls && uv build && ls && ls dist
+    - name: Result of build
+      run: |
+        ls 
+        echo "#####"
+        uv build 
+        echo "#####"
+        ls 
+        echo "#####"
+        ls dist
   
+    - name: Commit lock file
+      uses: ./.github/actions/commit-and-push
+      with:
+        commit-message: "chore: update lock file"
