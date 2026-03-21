@@ -3,7 +3,7 @@ from sensorthings.defaults import INSTALLED_APPS as ST_INSTALLED_APPS
 
 ALLOWED_HOSTS = ["*"]
 
-DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3"}}
+DATABASES = {"default": ST_INSTALLED_APPS["spatialite"]}
 
 INSTALLED_APPS = [*ST_INSTALLED_APPS, "sensorthings"]
 

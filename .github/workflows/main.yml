@@ -29,6 +29,11 @@ jobs:
     steps:
     - uses: actions/checkout@v6
 
+    - name: Install GDAL and geospatial libraries
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y gdal-bin libgdal-dev libgeos-dev libproj-dev
+
     - uses: actions/setup-python@v6
       with:
         python-version: ${{ matrix.python-version }}
