@@ -1,11 +1,11 @@
 from __future__ import annotations
-from sensorthings.defaults import INSTALLED_APPS as ST_INSTALLED_APPS
+from sensorthings import defaults as ST
 
 ALLOWED_HOSTS = ["*"]
 
-DATABASES = {"default": ST_INSTALLED_APPS.DATABASE_OPTIONS["spatialite"]}
+DATABASES = {"default": ST.DATABASE_OPTIONS["spatialite"]}
 
-INSTALLED_APPS = [*ST_INSTALLED_APPS, "sensorthings"]
+INSTALLED_APPS = [*ST.INSTALLED_APPS, "sensorthings"]
 
 ROOT_URLCONF = "tests.urls"
 
