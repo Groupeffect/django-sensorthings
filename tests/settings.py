@@ -3,7 +3,7 @@ from sensorthings.defaults import INSTALLED_APPS as ST_INSTALLED_APPS
 
 ALLOWED_HOSTS = ["*"]
 
-DATABASES = {"default": ST_INSTALLED_APPS["spatialite"]}
+DATABASES = {"default": ST_INSTALLED_APPS.DATABASE_OPTIONS["spatialite"]}
 
 INSTALLED_APPS = [*ST_INSTALLED_APPS, "sensorthings"]
 
