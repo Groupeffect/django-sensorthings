@@ -7,7 +7,6 @@ on:
     tags:
     - '**'
   pull_request:
-
 concurrency:
   group: ${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
@@ -16,7 +15,6 @@ jobs:
   tests:
     name: Python ${{ matrix.python-version }}
     runs-on: ubuntu-24.04
-
     strategy:
       matrix:
         python-version:
@@ -24,7 +22,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v6
-
     - uses: actions/setup-python@v6
       with:
         python-version: ${{ matrix.python-version }}
@@ -34,6 +31,7 @@ jobs:
       uses: astral-sh/setup-uv@v7
       with:
         enable-cache: true
+
     - name: Run tox targets for ${{ matrix.python-version }}
       run: |
         sudo apt-get update
@@ -102,7 +100,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v6
-
       - uses: astral-sh/setup-uv@v7
       - name: Build
         run: |
