@@ -75,6 +75,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+          sudo apt install gdal-bin libgdal-dev libgeos-dev libproj-dev libsqlite3-mod-spatialite libopenblas-dev
           uv pip install --system coverage[toml]
 
       - name: Download data
@@ -123,5 +124,6 @@ jobs:
           
       - name: Build
         run: |
+          sudo apt install gdal-bin libgdal-dev libgeos-dev libproj-dev libsqlite3-mod-spatialite libopenblas-dev
           uv build
       - uses: pypa/gh-action-pypi-publish@release/v1
