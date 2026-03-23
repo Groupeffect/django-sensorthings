@@ -44,7 +44,7 @@ jobs:
       with:
         enable-cache: true
 
-    - name: Write lock file
+    - name: Run UV
       run: uv sync
 
 
@@ -70,7 +70,3 @@ jobs:
         echo "#####"
         ls dist
   
-    - name: Commit lock file
-      uses: ./.github/actions/commit-and-push
-      with:
-        commit-message: "chore: update lock file"

@@ -6,7 +6,7 @@ requires = [
 
 [project]
 name = "django-sensorthings"
-version = "0.0.1"
+version = "1.0.0"
 description = """django-sensorthings is a Django application for handling ogc sensorthings data."""
 readme = "README.rst"
 keywords = [
@@ -27,7 +27,7 @@ authors = [
 ]
 requires-python = ">=3.12"
 classifiers = [
-  "Development Status :: 3 - Alpha",
+  "Development Status :: 5 - Production/Stable",
   "Environment :: Web Environment",
   "Framework :: Django",
   "Framework :: Django :: 6.0",
@@ -35,6 +35,7 @@ classifiers = [
   "Natural Language :: English",
   "Operating System :: OS Independent",
   "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
   "Programming Language :: Python :: 3.14",
   "Programming Language :: Python :: Implementation :: CPython",
@@ -52,8 +53,10 @@ dependencies = [
   "drf_spectacular_sidecar>=2026.3"
 ]
 urls.Changelog = "https://github.com/groupeffect/django-sensorthings/blob/main/CHANGELOG.rst"
-urls.Funding = "https://groupeffect.eu/books/"
 urls.Repository = "https://github.com/groupeffect/django-sensorthings"
+
+[tool.setuptools.packages.find]
+where = ["src"]
 
 [dependency-groups]
 test = [

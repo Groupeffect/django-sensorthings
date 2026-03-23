@@ -5,4 +5,4 @@ from django.apps import AppConfig
 
 class SensorthingsAppConfig(AppConfig):
     name = "sensorthings"
-    verbose_name = "django-sensorthings"
+    verbose_name = "sensorthings"
