@@ -118,7 +118,7 @@ SPECTACULAR_SETTINGS = {
     "OAS_VERSION": "3.0.3",
     "TITLE": WEB_TITLE + " API",
     "DESCRIPTION": "Management System",
-    "VERSION": getenv("API_VERSION", "1.0.0"),
+    "VERSION": getenv("API_VERSION", "1.0.1"),
     "SERVE_INCLUDE_SCHEMA": True,
     "SWAGGER_UI_DIST": "SIDECAR",  # shorthand to use the sidecar instead
     "SWAGGER_UI_FAVICON_HREF": "SIDECAR",

@@ -6,7 +6,7 @@ requires = [
 
 [project]
 name = "django-sensorthings"
-version = "1.0.0"
+version = "1.0.1"
 description = """django-sensorthings is a Django application for handling ogc sensorthings data."""
 readme = "README.rst"
 keywords = [

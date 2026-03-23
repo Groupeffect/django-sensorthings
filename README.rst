@@ -216,7 +216,7 @@ drf-spectacular OpenAPI configuration:
 - ``TITLE``: Configurable via the ``SENSORTHINGS_SWAGGER_TITLE`` env variable
   (default: ``"Sensorthings"``).
 - ``VERSION``: Configurable via the ``API_VERSION`` env variable (default:
-  ``"1.0.0"``).
+  ``"1.0.1"``).
 - Swagger UI served via the ``drf_spectacular_sidecar``.
 
 SWAGGER_SETTINGS
@@ -727,7 +727,7 @@ Environment Variables
 Variable                                    Description                           Default
 ==========================================  ====================================  ==========
 ``SENSORTHINGS_SWAGGER_TITLE``              Title shown in the Swagger UI         ``Sensorthings``
-``API_VERSION``                             API version in the OpenAPI schema     ``1.0.0``
+``API_VERSION``                             API version in the OpenAPI schema     ``1.0.1``
 ==========================================  ====================================  ==========
 
 Django Settings
