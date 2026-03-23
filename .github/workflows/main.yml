@@ -37,7 +37,7 @@ jobs:
     - name: Run tox targets for ${{ matrix.python-version }}
       run: |
         sudo apt-get update
-        sudo apt-get install -y gdal-bin libgdal-dev libgeos-dev libproj-dev
+        sudo apt-get install -y gdal-bin libgdal-dev libgeos-dev libproj-dev libsqlite3-mod-spatialite
         uvx --with tox-uv tox run -f py$(echo ${{ matrix.python-version }} | tr -d .)
 
     - name: Upload coverage data
@@ -65,7 +65,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y gdal-bin libgdal-dev libgeos-dev libproj-dev
+          sudo apt-get install -y gdal-bin libgdal-dev libgeos-dev libproj-dev libsqlite3-mod-spatialite
           uv pip install --system coverage[toml]
 
       - name: Download data
@@ -107,6 +107,6 @@ jobs:
       - name: Build
         run: |
           sudo apt-get update
-          sudo apt-get install -y gdal-bin libgdal-dev libgeos-dev libproj-dev
+          sudo apt-get install -y gdal-bin libgdal-dev libgeos-dev libproj-dev libsqlite3-mod-spatialite
           uv build
       - uses: pypa/gh-action-pypi-publish@release/v1
