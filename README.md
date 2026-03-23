@@ -1,2 +1,5 @@
 # django-sensorthings
-Sensorthings models and rest api. Can also be used as proxy for frost-server.
+
+**The full documentation for this project has moved to [README.rst](README.rst).**
+
+*(Please make all future content changes in `README.rst` to keep them synchronized with PyPI.)*
