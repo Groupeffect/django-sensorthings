@@ -100,7 +100,7 @@ jobs:
     needs: [coverage]
     if: github.ref == 'refs/heads/main' 
     runs-on: ubuntu-24.04
-    environment: release
+    environment: pypi
 
     permissions:
       contents: read
