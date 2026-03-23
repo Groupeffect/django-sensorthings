@@ -5,10 +5,16 @@ bn = {"blank": True, "null": True}
 
 
 class MetaModel(models.Model):
-    if settings.SENSORTHINGS_ENABLE_PUBLIC_PRIVATE is not False:
+    if (
+        not hasattr(settings, "SENSORTHINGS_ENABLE_PUBLIC_PRIVATE")
+        or settings.SENSORTHINGS_ENABLE_PUBLIC_PRIVATE is not False
+    ):
         is_public = models.BooleanField(default=True)
         is_private = models.BooleanField(default=False)
-    if settings.SENSORTHINGS_ENABLE_OWNER is not False:
+    if (
+        not hasattr(settings, "SENSORTHINGS_ENABLE_OWNER")
+        or settings.SENSORTHINGS_ENABLE_OWNER is not False
+    ):
         has_owner = models.ForeignKey(
             settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, **bn
         )
