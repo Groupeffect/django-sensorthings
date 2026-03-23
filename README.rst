@@ -92,13 +92,13 @@ Quick Start
 
    This will mount the following URL groups:
 
-   ================ ===========================================
-   Prefix           Description
-   ================ ===========================================
-   ``/api/jwt/``    JWT authentication endpoints
-   ``/api/sensorthings/``  SensorThings REST API (DRF router)
+   ======================== ===========================================
+   Prefix                   Description
+   ======================== ===========================================
+   ``/api/jwt/``            JWT authentication endpoints
+   ``/api/sensorthings/``   SensorThings REST API (DRF router)
    ``/api/swagger/``        Swagger UI & OpenAPI schema
-   ================ ===========================================
+   ======================== ===========================================
 
 3. **Apply migrations**:
 
@@ -160,13 +160,13 @@ Pre-built ``DATABASES["default"]`` engine entries:
 
 Available keys:
 
-============= ==========================================
-Key           Engine
-============= ==========================================
+=============== ==========================================
+Key             Engine
+=============== ==========================================
 ``spatialite``  ``django.contrib.gis.db.backends.spatialite``
 ``postgis``     ``django.contrib.gis.db.backends.postgis``
 ``postgres``    ``django.db.backends.postgresql``
-============= ==========================================
+=============== ==========================================
 
 REST_FRAMEWORK
 --------------
