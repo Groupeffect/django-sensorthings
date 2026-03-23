@@ -33,7 +33,7 @@ jobs:
         enable-cache: true
 
     - name: Update apt repo and Cache & Install Dependencies
-      run: apt-get update
+      run: sudo apt-get update
     - uses: awalsh128/cache-apt-pkgs-action@latest
       with:
         packages: gdal-bin libgdal-dev libgeos-dev libproj-dev libsqlite3-mod-spatialite libopenblas-dev
@@ -41,7 +41,7 @@ jobs:
 
     - name: Run tox targets for ${{ matrix.python-version }}
       run: |
-        apt install gdal-bin libgdal-dev libgeos-dev libproj-dev libsqlite3-mod-spatialite libopenblas-dev
+        sudo apt install gdal-bin libgdal-dev libgeos-dev libproj-dev libsqlite3-mod-spatialite libopenblas-dev
         uvx --with tox-uv tox run -f py$(echo ${{ matrix.python-version }} | tr -d .)
 
     - name: Upload coverage data
