@@ -40,6 +40,9 @@ jobs:
         version: 1.0
 
     - name: Run tox targets for ${{ matrix.python-version }}
+      with:
+        packages: gdal-bin libgdal-dev libgeos-dev libproj-dev libsqlite3-mod-spatialite libopenblas-dev
+        version: 1.0
       run: |
         uvx --with tox-uv tox run -f py$(echo ${{ matrix.python-version }} | tr -d .)
 
