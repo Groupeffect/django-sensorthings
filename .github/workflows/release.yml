@@ -1,5 +1,8 @@
 name: CI django sensorthings
 
+env:
+  APT_DEPENDENCIES: "gdal-bin libgdal-dev libgeos-dev libproj-dev libsqlite3-mod-spatialite libopenblas-dev"
+
 on:
   push:
     branches:
@@ -36,12 +39,12 @@ jobs:
       run: sudo apt-get update
     - uses: awalsh128/cache-apt-pkgs-action@latest
       with:
-        packages: gdal-bin libgdal-dev libgeos-dev libproj-dev libsqlite3-mod-spatialite libopenblas-dev
+        packages: ${{ env.APT_DEPENDENCIES }}
         version: 1.0
 
     - name: Run tox targets for ${{ matrix.python-version }}
       run: |
-        sudo apt install gdal-bin libgdal-dev libgeos-dev libproj-dev libsqlite3-mod-spatialite libopenblas-dev
+        sudo apt install -y ${{ env.APT_DEPENDENCIES }}
         uvx --with tox-uv tox run -f py$(echo ${{ matrix.python-version }} | tr -d .)
 
     - name: Upload coverage data
@@ -70,12 +73,12 @@ jobs:
         run: sudo apt-get update
       - uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: gdal-bin libgdal-dev libgeos-dev libproj-dev libsqlite3-mod-spatialite libopenblas-dev
+          packages: ${{ env.APT_DEPENDENCIES }}
           version: 1.0
 
       - name: Install dependencies
         run: |
-          sudo apt install gdal-bin libgdal-dev libgeos-dev libproj-dev libsqlite3-mod-spatialite libopenblas-dev
+          sudo apt install -y ${{ env.APT_DEPENDENCIES }}
           uv pip install --system coverage[toml]
 
       - name: Download data
@@ -119,11 +122,11 @@ jobs:
         run: sudo apt-get update
       - uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: gdal-bin libgdal-dev libgeos-dev libproj-dev libsqlite3-mod-spatialite libopenblas-dev
+          packages: ${{ env.APT_DEPENDENCIES }}
           version: 1.0
           
       - name: Build
         run: |
-          sudo apt install gdal-bin libgdal-dev libgeos-dev libproj-dev libsqlite3-mod-spatialite libopenblas-dev
+          sudo apt install -y ${{ env.APT_DEPENDENCIES }}
           uv build
       - uses: pypa/gh-action-pypi-publish@release/v1
