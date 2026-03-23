@@ -7,8 +7,7 @@ on:
   push:
     branches:
     - development/prepare
-    # tags:
-    # - '**'
+
   pull_request:
 concurrency:
   group: ${{ github.head_ref || github.run_id }}
