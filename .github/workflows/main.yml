@@ -39,6 +39,7 @@ jobs:
         version: 1.0
 
     - name: Run tox targets for ${{ matrix.python-version }}
+      uses: actions/checkout@v6
       run: |
         uvx --with tox-uv tox run -f py$(echo ${{ matrix.python-version }} | tr -d .)
 
