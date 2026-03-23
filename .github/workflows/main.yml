@@ -34,12 +34,11 @@ jobs:
       uses: astral-sh/setup-uv@v7
       with:
         enable-cache: true
-    - name: Install GDAL and geospatial libraries
+    - name: Run tox targets for ${{ matrix.python-version }}
       run: |
         sudo apt-get update
         sudo apt-get install -y gdal-bin libgdal-dev libgeos-dev libproj-dev
-    - name: Run tox targets for ${{ matrix.python-version }}
-      run: uvx --with tox-uv tox run -f py$(echo ${{ matrix.python-version }} | tr -d .)
+        uvx --with tox-uv tox run -f py$(echo ${{ matrix.python-version }} | tr -d .)
 
     - name: Upload coverage data
       uses: actions/upload-artifact@v7
@@ -63,13 +62,11 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v7
 
-      - name: Install GDAL and geospatial libraries
+      - name: Install dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y gdal-bin libgdal-dev libgeos-dev libproj-dev
-
-      - name: Install dependencies
-        run: uv pip install --system coverage[toml]
+          uv pip install --system coverage[toml]
 
       - name: Download data
         uses: actions/download-artifact@v8
@@ -107,12 +104,9 @@ jobs:
       - uses: actions/checkout@v6
 
       - uses: astral-sh/setup-uv@v7
-      - name: Install GDAL and geospatial libraries
+      - name: Build
         run: |
           sudo apt-get update
           sudo apt-get install -y gdal-bin libgdal-dev libgeos-dev libproj-dev
-
-      - name: Build
-        run: uv build
-
+          uv build
       - uses: pypa/gh-action-pypi-publish@release/v1
