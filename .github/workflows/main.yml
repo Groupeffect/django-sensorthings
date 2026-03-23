@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches:
-    - development/prepare
+    - main
     # tags:
     # - '**'
   pull_request:
