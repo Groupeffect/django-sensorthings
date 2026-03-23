@@ -1,13 +1,7 @@
 name: CI
 
-on:
-  push:
-    branches:
-    - main
-    # tags:
-    # - '**'
-  pull_request:
-
+on: [push]
+jobs:
   release:
     runs-on: ubuntu-24.04
     environment: pypi
