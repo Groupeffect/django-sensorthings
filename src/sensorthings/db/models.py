@@ -1,16 +1,35 @@
 from sensorthings.db import core
+from django.contrib.gis.db import models
+from django.conf import settings
 
+bn = {"blank": True, "null": True}
 
-class Addr(core.Addr):
+class MetaModel(models.Model):
+    if not hasattr(settings, "SENSORTHINGS_ENABLE_PUBLIC_PRIVATE") or settings.SENSORTHINGS_ENABLE_PUBLIC_PRIVATE is True:
+        is_public = models.BooleanField(default=True)
+        is_private = models.BooleanField(default=False)
+
+    if not hasattr(settings, "SENSORTHINGS_ENABLE_OWNER") or settings.SENSORTHINGS_ENABLE_OWNER is True:
+        has_owner = models.ForeignKey(
+            settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, **bn, related_name="%(class)s_owner"
+        )
+        has_members = models.ManyToManyField(
+            settings.AUTH_USER_MODEL, blank=True, related_name="%(class)s_members"
+        )
+
+    class Meta:
+        abstract = True
+
+class Addr(MetaModel, core.Addr):
     pass
 
-class Addrfeat(core.Addrfeat):
+class Addrfeat(MetaModel, core.Addrfeat):
     pass
 
-class Bg(core.Bg):
+class Bg(MetaModel, core.Bg):
     pass
 
-class County(core.County):
+class County(MetaModel, core.County):
     pass
 
 class CountyLookup(core.CountyLookup):
@@ -19,16 +38,16 @@ class CountyLookup(core.CountyLookup):
 class CountysubLookup(core.CountysubLookup):
     pass
 
-class Cousub(core.Cousub):
+class Cousub(MetaModel, core.Cousub):
     pass
 
-class Databasechangelog(core.Databasechangelog):
+class Databasechangelog(MetaModel, core.Databasechangelog):
     pass
 
-class Databasechangeloglock(core.Databasechangeloglock):
+class Databasechangeloglock(MetaModel, core.Databasechangeloglock):
     pass
 
-class Datastreams(core.Datastreams):
+class Datastreams(MetaModel, core.Datastreams):
     pass
 
 class DatastreamsFeaturesUltimate(core.DatastreamsFeaturesUltimate):
@@ -37,151 +56,151 @@ class DatastreamsFeaturesUltimate(core.DatastreamsFeaturesUltimate):
 class DatastreamsObservedProperties(core.DatastreamsObservedProperties):
     pass
 
-class DirectionLookup(core.DirectionLookup):
+class DirectionLookup(MetaModel, core.DirectionLookup):
     pass
 
-class Edges(core.Edges):
+class Edges(MetaModel, core.Edges):
     pass
 
-class Faces(core.Faces):
+class Faces(MetaModel, core.Faces):
     pass
 
-class Featnames(core.Featnames):
+class Featnames(MetaModel, core.Featnames):
     pass
 
-class FeatureTypes(core.FeatureTypes):
+class FeatureTypes(MetaModel, core.FeatureTypes):
     pass
 
-class Features(core.Features):
+class Features(MetaModel, core.Features):
     pass
 
 class FeaturesFeatureTypes(core.FeaturesFeatureTypes):
     pass
 
-class GeocodeSettings(core.GeocodeSettings):
+class GeocodeSettings(MetaModel, core.GeocodeSettings):
     pass
 
-class GeocodeSettingsDefault(core.GeocodeSettingsDefault):
+class GeocodeSettingsDefault(MetaModel, core.GeocodeSettingsDefault):
     pass
 
-class HistLocations(core.HistLocations):
+class HistLocations(MetaModel, core.HistLocations):
     pass
 
 class Layer(core.Layer):
     pass
 
-class LoaderLookuptables(core.LoaderLookuptables):
+class LoaderLookuptables(MetaModel, core.LoaderLookuptables):
     pass
 
-class LoaderPlatform(core.LoaderPlatform):
+class LoaderPlatform(MetaModel, core.LoaderPlatform):
     pass
 
-class LoaderVariables(core.LoaderVariables):
+class LoaderVariables(MetaModel, core.LoaderVariables):
     pass
 
-class Locations(core.Locations):
+class Locations(MetaModel, core.Locations):
     pass
 
 class LocationsHistLocations(core.LocationsHistLocations):
     pass
 
-class Observations(core.Observations):
+class Observations(MetaModel, core.Observations):
     pass
 
-class ObservedProperties(core.ObservedProperties):
+class ObservedProperties(MetaModel, core.ObservedProperties):
     pass
 
-class PagcGaz(core.PagcGaz):
+class PagcGaz(MetaModel, core.PagcGaz):
     pass
 
-class PagcLex(core.PagcLex):
+class PagcLex(MetaModel, core.PagcLex):
     pass
 
-class PagcRules(core.PagcRules):
+class PagcRules(MetaModel, core.PagcRules):
     pass
 
-class Place(core.Place):
+class Place(MetaModel, core.Place):
     pass
 
 class PlaceLookup(core.PlaceLookup):
     pass
 
-class PreparationProcedures(core.PreparationProcedures):
+class PreparationProcedures(MetaModel, core.PreparationProcedures):
     pass
 
-class PreparationSteps(core.PreparationSteps):
+class PreparationSteps(MetaModel, core.PreparationSteps):
     pass
 
-class RelatedDatastreams(core.RelatedDatastreams):
+class RelatedDatastreams(MetaModel, core.RelatedDatastreams):
     pass
 
-class RelatedFeatures(core.RelatedFeatures):
+class RelatedFeatures(MetaModel, core.RelatedFeatures):
     pass
 
-class RelatedObservations(core.RelatedObservations):
+class RelatedObservations(MetaModel, core.RelatedObservations):
     pass
 
-class RelatedThings(core.RelatedThings):
+class RelatedThings(MetaModel, core.RelatedThings):
     pass
 
-class RelationRoles(core.RelationRoles):
+class RelationRoles(MetaModel, core.RelationRoles):
     pass
 
 class SamplerSamplingProcedure(core.SamplerSamplingProcedure):
     pass
 
-class Samplers(core.Samplers):
+class Samplers(MetaModel, core.Samplers):
     pass
 
-class SamplingProcedures(core.SamplingProcedures):
+class SamplingProcedures(MetaModel, core.SamplingProcedures):
     pass
 
-class Samplings(core.Samplings):
+class Samplings(MetaModel, core.Samplings):
     pass
 
-class SecondaryUnitLookup(core.SecondaryUnitLookup):
+class SecondaryUnitLookup(MetaModel, core.SecondaryUnitLookup):
     pass
 
-class Sensors(core.Sensors):
+class Sensors(MetaModel, core.Sensors):
     pass
 
-class State(core.State):
+class State(MetaModel, core.State):
     pass
 
-class StateLookup(core.StateLookup):
+class StateLookup(MetaModel, core.StateLookup):
     pass
 
-class StreetTypeLookup(core.StreetTypeLookup):
+class StreetTypeLookup(MetaModel, core.StreetTypeLookup):
     pass
 
-class Tabblock(core.Tabblock):
+class Tabblock(MetaModel, core.Tabblock):
     pass
 
-class Tabblock20(core.Tabblock20):
+class Tabblock20(MetaModel, core.Tabblock20):
     pass
 
-class Things(core.Things):
+class Things(MetaModel, core.Things):
     pass
 
 class ThingsLocations(core.ThingsLocations):
     pass
 
-class Topology(core.Topology):
+class Topology(MetaModel, core.Topology):
     pass
 
-class Tract(core.Tract):
+class Tract(MetaModel, core.Tract):
     pass
 
 class Zcta5(core.Zcta5):
     pass
 
-class ZipLookup(core.ZipLookup):
+class ZipLookup(MetaModel, core.ZipLookup):
     pass
 
-class ZipLookupAll(core.ZipLookupAll):
+class ZipLookupAll(MetaModel, core.ZipLookupAll):
     pass
 
-class ZipLookupBase(core.ZipLookupBase):
+class ZipLookupBase(MetaModel, core.ZipLookupBase):
     pass
 
 class ZipState(core.ZipState):

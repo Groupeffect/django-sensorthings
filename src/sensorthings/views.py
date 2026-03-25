@@ -44,22 +44,32 @@ class MetaViewset(ModelViewSet):
     ]
 
     def get_queryset(self):
+        # if both settings are enabled
         if (
-            settings.SENSORTHINGS_ENABLE_PUBLIC_PRIVATE
+            hasattr(settings, "SENSORTHINGS_ENABLE_PUBLIC_PRIVATE") 
+            and settings.SENSORTHINGS_ENABLE_PUBLIC_PRIVATE
+            and hasattr(settings, "SENSORTHINGS_ENABLE_OWNER") 
             and settings.SENSORTHINGS_ENABLE_OWNER
         ):
             return self.serializer_class.Meta.model.objects.filter(
-                Q(has_owner=self.request.user) | Q(is_public=True)
+                Q(
+                    Q(has_owner=self.request.user) | Q(is_public=True) | Q(has_members__in=[self.request.user])
+                )
             ).exclude(is_private=True)
-        elif settings.SENSORTHINGS_ENABLE_PUBLIC_PRIVATE:
+
+        # if only public private is enabled
+        elif hasattr(settings, "SENSORTHINGS_ENABLE_PUBLIC_PRIVATE") and settings.SENSORTHINGS_ENABLE_PUBLIC_PRIVATE:
             return self.serializer_class.Meta.model.objects.filter(
                 is_public=True
             ).exclude(is_private=True)
-
-        elif settings.SENSORTHINGS_ENABLE_OWNER:
+        
+        # if only owner is enabled
+        elif  hasattr(settings, "SENSORTHINGS_ENABLE_OWNER") and settings.SENSORTHINGS_ENABLE_OWNER:
             return self.serializer_class.Meta.model.objects.filter(
-                has_owner=self.request.user
+                Q(has_owner=self.request.user) | Q(has_members__in=[self.request.user])
             )
+        
+        # if no settings are enabled
         else:
             return self.serializer_class.Meta.model.objects.all()
 

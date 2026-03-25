@@ -16,3 +16,4 @@ Changelog
 ------------------
 
 * added configuration for disabling models and admin
+* created abstract base model for models without public/private and owner/members fields
