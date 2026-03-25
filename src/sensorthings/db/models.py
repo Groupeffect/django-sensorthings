@@ -21,190 +21,253 @@ class MetaModel(models.Model):
         abstract = True
 
 class Addr(MetaModel, core.Addr):
-    pass
+    class Meta:
+        db_table = "addr"
 
 class Addrfeat(MetaModel, core.Addrfeat):
-    pass
+    class Meta:
+        db_table = "addrfeat"
 
 class Bg(MetaModel, core.Bg):
-    pass
+    class Meta:
+        db_table = "bg"
 
 class County(MetaModel, core.County):
-    pass
+    class Meta:
+        db_table = "county"
 
 class CountyLookup(core.CountyLookup):
-    pass
+    class Meta:
+        db_table = "county_lookup"
 
 class CountysubLookup(core.CountysubLookup):
-    pass
+    class Meta:
+        db_table = "countysub_lookup"
 
 class Cousub(MetaModel, core.Cousub):
-    pass
+    class Meta:
+        db_table = "cousub"
 
 class Databasechangelog(MetaModel, core.Databasechangelog):
-    pass
+    class Meta:
+        db_table = "databasechangelog"
 
 class Databasechangeloglock(MetaModel, core.Databasechangeloglock):
-    pass
+    class Meta:
+        db_table = "databasechangeloglock"
 
 class Datastreams(MetaModel, core.Datastreams):
-    pass
+    class Meta:
+        db_table = "datastreams"
 
 class DatastreamsFeaturesUltimate(core.DatastreamsFeaturesUltimate):
-    pass
+    class Meta:
+        db_table = "datastreams_features_ultimate"
 
 class DatastreamsObservedProperties(core.DatastreamsObservedProperties):
-    pass
+    class Meta:
+        db_table = "datastreams_observed_properties"
 
 class DirectionLookup(MetaModel, core.DirectionLookup):
-    pass
+    class Meta:
+        db_table = "direction_lookup"
 
 class Edges(MetaModel, core.Edges):
-    pass
+    class Meta:
+        db_table = "edges"
 
 class Faces(MetaModel, core.Faces):
-    pass
+    class Meta:
+        db_table = "faces"
 
 class Featnames(MetaModel, core.Featnames):
-    pass
+    class Meta:
+        db_table = "featnames"
 
 class FeatureTypes(MetaModel, core.FeatureTypes):
-    pass
+    class Meta:
+        db_table = "feature_types"
 
 class Features(MetaModel, core.Features):
-    pass
+    class Meta:
+        db_table = "features"
 
 class FeaturesFeatureTypes(core.FeaturesFeatureTypes):
-    pass
+    class Meta:
+        db_table = "features_feature_types"
 
 class GeocodeSettings(MetaModel, core.GeocodeSettings):
-    pass
+    class Meta:
+        db_table = "geocode_settings"
 
 class GeocodeSettingsDefault(MetaModel, core.GeocodeSettingsDefault):
-    pass
+    class Meta:
+        db_table = "geocode_settings_default"
 
 class HistLocations(MetaModel, core.HistLocations):
-    pass
+    class Meta:
+        db_table = "hist_locations"
 
 class Layer(core.Layer):
-    pass
+    class Meta:
+        db_table = "layer"
 
 class LoaderLookuptables(MetaModel, core.LoaderLookuptables):
-    pass
+    class Meta:
+        db_table = "loader_lookuptables"
 
 class LoaderPlatform(MetaModel, core.LoaderPlatform):
-    pass
+    class Meta:
+        db_table = "loader_platform"
 
 class LoaderVariables(MetaModel, core.LoaderVariables):
-    pass
+    class Meta:
+        db_table = "loader_variables"
 
 class Locations(MetaModel, core.Locations):
-    pass
+    class Meta:
+        db_table = "locations"
 
 class LocationsHistLocations(core.LocationsHistLocations):
-    pass
+    class Meta:
+        db_table = "locations_hist_locations"
 
 class Observations(MetaModel, core.Observations):
-    pass
+    class Meta:
+        db_table = "observations"
 
 class ObservedProperties(MetaModel, core.ObservedProperties):
-    pass
+    class Meta:
+        db_table = "observed_properties"
 
 class PagcGaz(MetaModel, core.PagcGaz):
-    pass
+    class Meta:
+        db_table = "pagc_gaz"
 
 class PagcLex(MetaModel, core.PagcLex):
-    pass
+    class Meta:
+        db_table = "pagc_lex"
 
 class PagcRules(MetaModel, core.PagcRules):
-    pass
+    class Meta:
+        db_table = "pagc_rules"
 
 class Place(MetaModel, core.Place):
-    pass
+    class Meta:
+        db_table = "place"
 
 class PlaceLookup(core.PlaceLookup):
-    pass
+    class Meta:
+        db_table = "place_lookup"
 
 class PreparationProcedures(MetaModel, core.PreparationProcedures):
-    pass
+    class Meta:
+        db_table = "preparation_procedures"
 
 class PreparationSteps(MetaModel, core.PreparationSteps):
-    pass
+    class Meta:
+        db_table = "preparation_steps"
 
 class RelatedDatastreams(MetaModel, core.RelatedDatastreams):
-    pass
+    class Meta:
+        db_table = "related_datastreams"
 
 class RelatedFeatures(MetaModel, core.RelatedFeatures):
-    pass
+    class Meta:
+        db_table = "related_features"
 
 class RelatedObservations(MetaModel, core.RelatedObservations):
-    pass
+    class Meta:
+        db_table = "related_observations"
 
 class RelatedThings(MetaModel, core.RelatedThings):
-    pass
+    class Meta:
+        db_table = "related_things"
 
 class RelationRoles(MetaModel, core.RelationRoles):
-    pass
+    class Meta:
+        db_table = "relation_roles"
 
 class SamplerSamplingProcedure(core.SamplerSamplingProcedure):
-    pass
+    class Meta:
+        db_table = "sampler_sampling_procedure"
 
 class Samplers(MetaModel, core.Samplers):
-    pass
+    class Meta:
+        db_table = "samplers"
 
 class SamplingProcedures(MetaModel, core.SamplingProcedures):
-    pass
+    class Meta:
+        db_table = "sampling_procedures"
 
 class Samplings(MetaModel, core.Samplings):
-    pass
+    class Meta:
+        db_table = "samplings"
 
 class SecondaryUnitLookup(MetaModel, core.SecondaryUnitLookup):
-    pass
+    class Meta:
+        db_table = "secondary_unit_lookup"
 
 class Sensors(MetaModel, core.Sensors):
-    pass
+    class Meta:
+        db_table = "sensors"
 
 class State(MetaModel, core.State):
-    pass
+    class Meta:
+        db_table = "state"
 
 class StateLookup(MetaModel, core.StateLookup):
-    pass
+    class Meta:
+        db_table = "state_lookup"
 
 class StreetTypeLookup(MetaModel, core.StreetTypeLookup):
-    pass
+    class Meta:
+        db_table = "street_type_lookup"
 
 class Tabblock(MetaModel, core.Tabblock):
-    pass
+    class Meta:
+        db_table = "tabblock"
 
 class Tabblock20(MetaModel, core.Tabblock20):
-    pass
+    class Meta:
+        db_table = "tabblock20"
 
 class Things(MetaModel, core.Things):
-    pass
+    class Meta:
+        db_table = "things"
 
 class ThingsLocations(core.ThingsLocations):
-    pass
+    class Meta:
+        db_table = "things_locations"
 
 class Topology(MetaModel, core.Topology):
-    pass
+    class Meta:
+        db_table = "topology"
 
 class Tract(MetaModel, core.Tract):
-    pass
+    class Meta:
+        db_table = "tract"
 
 class Zcta5(core.Zcta5):
-    pass
+    class Meta:
+        db_table = "zcta5"
 
 class ZipLookup(MetaModel, core.ZipLookup):
-    pass
+    class Meta:
+        db_table = "zip_lookup"
 
 class ZipLookupAll(MetaModel, core.ZipLookupAll):
-    pass
+    class Meta:
+        db_table = "zip_lookup_all"
 
 class ZipLookupBase(MetaModel, core.ZipLookupBase):
-    pass
+    class Meta:
+        db_table = "zip_lookup_base"
 
 class ZipState(core.ZipState):
-    pass
+    class Meta:
+        db_table = "zip_state"
 
 class ZipStateLoc(core.ZipStateLoc):
-    pass
+    class Meta:
+        db_table = "zip_state_loc"
