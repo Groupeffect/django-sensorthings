@@ -57,7 +57,7 @@ urls.Repository = "https://github.com/groupeffect/django-sensorthings"
 
 [tool.setuptools.packages.find]
 where = ["src"]
-exclude = ["interface*", "manage*"]
+exclude = ["interface*", "manage*", "sensorthings/migrations/0001_initial.py"]
 
 [dependency-groups]
 test = [

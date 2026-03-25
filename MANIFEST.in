@@ -6,3 +6,4 @@ include README.rst
 include src/*/py.typed
 prune src/interface
 exclude src/manage.py
+exclude src/sensorthings/migrations/0001_initial.py
