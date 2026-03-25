@@ -745,14 +745,14 @@ Django Settings
 
 Add these to your ``settings.py`` to control viewset queryset behaviour, models, and admin loading:
 
-=============================================  =============================================  ============
-Setting                                        Description                                    Default
-=============================================  =============================================  ============
-``SENSORTHINGS_ENABLE_PUBLIC_PRIVATE``         Filter by ``is_public`` / ``is_private``      ``True``
-``SENSORTHINGS_ENABLE_OWNER``                  Filter by ``has_owner`` (current user)        ``True``
-``SENSORTHINGS_DISABLE_MODELS``                Disable loading sensorthings models           ``False``
-``SENSORTHINGS_DISABLE_ADMIN``                 Disable registering models in Django admin    ``False``
-=============================================  =============================================  ============
+======================================  ==========================================  =======
+Setting                                 Description                                 Default
+======================================  ==========================================  =======
+``SENSORTHINGS_ENABLE_PUBLIC_PRIVATE``  Filter by ``is_public`` / ``is_private``    ``True``
+``SENSORTHINGS_ENABLE_OWNER``           Filter by ``has_owner`` (current user)      ``True``
+``SENSORTHINGS_DISABLE_MODELS``         Disable loading sensorthings models         ``False``
+``SENSORTHINGS_DISABLE_ADMIN``          Disable registering models in Django admin  ``False``
+======================================  ==========================================  =======
 
 When both are ``True``, the queryset returns objects owned by the current
 user **or** marked as public, while excluding private objects. Set either
