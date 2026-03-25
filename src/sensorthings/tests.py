@@ -173,7 +173,7 @@ class URLRoutingTests(SimpleTestCase):
 
     def test_jwt_obtain_url_resolves(self):
         url = reverse("jwt")
-        self.assertEqual(url, "/api/jwt//")
+        self.assertEqual(url, "/api/jwt/")
 
     def test_jwt_verify_url_resolves(self):
         url = reverse("jwt_verify")

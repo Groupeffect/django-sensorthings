@@ -28,6 +28,16 @@ Runtime dependencies (installed automatically):
 - ``drf-spectacular`` ≥ 0.28
 - ``drf-spectacular-sidecar`` ≥ 2026.3
 
+Runtime dependencies available for spatialite:
+
+- ``libspatialite-dev`` (Debian/Ubuntu)
+- ``spatialite-devel`` (Fedora/CentOS)
+- ``libspatialite`` (macOS)
+- ``libgdal-dev`` (Debian/Ubuntu)
+- ``libgeos-dev`` (Debian/Ubuntu)
+- ``libproj-dev`` (Debian/Ubuntu)
+- ``libsqlite3-mod-spatialite`` (Debian/Ubuntu)
+- ``libopenblas-dev`` (Debian/Ubuntu)
 
 Installation
 ============
@@ -216,7 +226,7 @@ drf-spectacular OpenAPI configuration:
 - ``TITLE``: Configurable via the ``SENSORTHINGS_SWAGGER_TITLE`` env variable
   (default: ``"Sensorthings"``).
 - ``VERSION``: Configurable via the ``API_VERSION`` env variable (default:
-  ``"1.0.1"``).
+  ``"1.0.2"``).
 - Swagger UI served via the ``drf_spectacular_sidecar``.
 
 SWAGGER_SETTINGS
@@ -727,19 +737,21 @@ Environment Variables
 Variable                                    Description                           Default
 ==========================================  ====================================  ==========
 ``SENSORTHINGS_SWAGGER_TITLE``              Title shown in the Swagger UI         ``Sensorthings``
-``API_VERSION``                             API version in the OpenAPI schema     ``1.0.1``
+``API_VERSION``                             API version in the OpenAPI schema     ``1.1``
 ==========================================  ====================================  ==========
 
 Django Settings
 ---------------
 
-Add these to your ``settings.py`` to control viewset queryset behaviour:
+Add these to your ``settings.py`` to control viewset queryset behaviour, models, and admin loading:
 
 =============================================  =========================================  ==========
 Setting                                        Description                                Default
 =============================================  =========================================  ==========
 ``SENSORTHINGS_ENABLE_PUBLIC_PRIVATE``          Filter by ``is_public`` / ``is_private``    ``True``
 ``SENSORTHINGS_ENABLE_OWNER``                   Filter by ``has_owner`` (current user)      ``True``
+``SENSORTHINGS_DISABLE_MODELS``                 Disable loading sensorthings models         ``False``
+``SENSORTHINGS_DISABLE_ADMIN``                  Disable registering models in Django admin  ``False``
 =============================================  =========================================  ==========
 
 When both are ``True``, the queryset returns objects owned by the current

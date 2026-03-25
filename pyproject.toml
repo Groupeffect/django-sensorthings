@@ -6,7 +6,7 @@ requires = [
 
 [project]
 name = "django-sensorthings"
-version = "1.0.1"
+version = "1.0.2"
 description = """django-sensorthings is a Django application for handling ogc sensorthings data."""
 readme = "README.rst"
 keywords = [
@@ -57,6 +57,7 @@ urls.Repository = "https://github.com/groupeffect/django-sensorthings"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+exclude = ["interface*", "manage*"]
 
 [dependency-groups]
 test = [
